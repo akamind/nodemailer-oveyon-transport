@@ -13,7 +13,9 @@ function run(command, args, cwd = project) {
 }
 
 try {
-  const manifest = JSON.parse(run(npm, ['pack', '--ignore-scripts', '--json', '--pack-destination', temp]))[0];
+  // npm <= 11 devolve uma lista; o npm 12 devolve um objeto indexado pelo nome do pacote.
+  const saida = JSON.parse(run(npm, ['pack', '--ignore-scripts', '--json', '--pack-destination', temp]));
+  const manifest = Array.isArray(saida) ? saida[0] : Object.values(saida)[0];
   const permitted = /^(?:package\.json|index\.js|LICENSE|README(?:\.pt-BR)?\.md|lib\/[\w.-]+\.js|types\/index\.d\.ts|examples\/[\w.-]+\.(?:js|mjs))$/;
   for (const file of manifest.files) assert.match(file.path, permitted);
   const names = new Set(manifest.files.map(file => file.path));

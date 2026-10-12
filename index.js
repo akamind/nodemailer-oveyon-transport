@@ -18,7 +18,7 @@ function createOveyonTransport(options) {
   let mailer;
   return {
     name: 'Oveyon',
-    version: '0.1.0',
+    version: '0.1.1',
     get mailer() { return mailer; },
     set mailer(value) {
       if (!value || !value.options || !value._defaults || typeof value._defaults !== 'object' ||

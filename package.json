@@ -1,6 +1,6 @@
 {
   "name": "@oveyon/nodemailer-transport",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Nodemailer transport for the Oveyon email JSON API",
   "main": "index.js",
   "types": "types/index.d.ts",

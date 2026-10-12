@@ -1,0 +1,28 @@
+{
+  "name": "@oveyon/nodemailer-transport",
+  "version": "0.1.0",
+  "description": "Nodemailer transport for the Oveyon email JSON API",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "type": "commonjs",
+  "exports": {
+    ".": { "types": "./types/index.d.ts", "default": "./index.js" }
+  },
+  "files": ["index.js", "lib/", "types/", "README.md", "README.pt-BR.md", "LICENSE", "examples/"],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check index.js && node --check lib/error.js && node --check lib/normalize.js && node --check lib/request.js && npm run test:types",
+    "test:types": "tsc --noEmit --strict --types node --module node16 --moduleResolution node16 --target ES2022 test/types.ts",
+    "pack:check": "node scripts/check-pack.js"
+  },
+  "engines": { "node": ">=22" },
+  "peerDependencies": { "nodemailer": "^10.1.0" },
+  "devDependencies": { "nodemailer": "10.1.0", "typescript": "7.0.2", "@types/node": "^22.0.0" },
+  "license": "MIT",
+  "author": "Akamind Inc",
+  "repository": { "type": "git", "url": "git+https://github.com/akamind/nodemailer-oveyon-transport.git" },
+  "homepage": "https://oveyon.com",
+  "bugs": { "url": "https://github.com/akamind/nodemailer-oveyon-transport/issues" },
+  "keywords": ["nodemailer", "nodemailer-transport", "oveyon", "email", "transactional-email"],
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" }
+}

@@ -1,0 +1,9 @@
+node_modules/
+*.tgz
+coverage/
+.npmrc
+.npmjs
+.gh
+*.log
+.env
+.env.*
